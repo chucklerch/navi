@@ -1,0 +1,9 @@
+% git, diff
+
+# Git diff with whitespace
+git diff --ws-error-highlight=new,old
+
+% git, gh
+
+# List cnp repos
+gh repo list --no-archived --topic cnp --limit 99 Nationwide

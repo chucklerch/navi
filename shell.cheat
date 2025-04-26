@@ -1,0 +1,11 @@
+% shell, diff
+
+# Yaml diff
+diff <(yq -P 'sort_keys(..)' -o=props <file1>) <(yq -P 'sort_keys(..)' -o=props <file2>)
+
+# Yaml vimdiff
+vimdiff <(yq -P 'sort_keys(..)' -o=props <file1>) <(yq -P 'sort_keys(..)' -o=props <file2>)
+
+$ file1: ls -1
+$ file2: ls -1
+

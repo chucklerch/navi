@@ -1,0 +1,5 @@
+% navi
+
+# Edit navi config file
+vim `navi info config-path`
+
