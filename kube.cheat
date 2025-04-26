@@ -29,13 +29,3 @@ k delete replicaset $(kubectl get replicaset -o jsonpath='{ .items[?(@.spec.repl
 
 # Show AMI
 k get nodeclaim -o=custom-columns="Name:.status.nodeName,Nodepool:.metadata.labels.karpenter\.sh/nodepool,AZ:.metadata.labels.topology\.kubernetes\.io/zone,Create:.metadata.creationTimestamp,AMI:.status.imageID"
-
-# Loop
-CLUSTERS=<CLUSTERS>
-clear; for C in $CLUSTERS; do
-  echo $C
-  echo "-------"
-  KUBECONFIG="${HOME}/.kube/${C}-config" kubecolor --force-colors get nodes -l  node-role.kubernetes.io/worker --sort-by=.metadata.creationTimestamp
-  echo
-done
-$ CLUSTERS: echo -e 'sandbox\t\t"sand021 sand100";dev\t\t"dev020";test\t\t"test020 test021 test023 test024 test025 test028";prod\t\t"prod020 prod021 prod022 prod023 prod024 prod025 prod026 prod027 prod028 prod029"' | tr ';' '\n' --- --column 2
